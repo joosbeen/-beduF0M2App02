@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,12 +13,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.F0M2App02"
         tools:targetApi="31">
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+        <activity
+            android:name=".Temperatura"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".MainActivity3"
             android:exported="false">
-            <!--meta-data
+
+            <!--
+                meta-data
                 android:name="android.app.lib_name"
-                android:value="" /-->
+                android:value="" /
+            -->
         </activity>
         <activity
             android:name=".MainActivity2"
@@ -40,5 +54,7 @@
                 android:value="" />
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
